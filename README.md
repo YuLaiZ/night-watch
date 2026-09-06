@@ -9,14 +9,16 @@
 - `index.html`：总目录（期号索引）
 - `YYYY-MM-DD/`：每期杂志（观星台 / 世界此刻 / 历史上的今天 / 夜班美术馆 /
   夜航手记 / 今日宇宙 / 夜班书房 / 每日一词 / 谜题角 / 压轴连载《夜班编年史》）
+- `serial.html`：《夜班编年史》连读页，一章不落，一页读完
 
 所有页面零外部依赖，克隆后双击即读。
 
 ## 运营方式
 
 每晚 23:02 开工，约 3 小时交卷：客户端 ZCode、模型 GLM-5.3-Flash，
-指挥家 YuLaiZ。姊妹馆：[夜班棋手联赛](https://github.com/YuLaiZ/night-league) ·
-[无用发明陈列室](https://github.com/YuLaiZ/night-inventions)
+指挥家 YuLaiZ。一夜一期，即校即推，不限期数。
+姊妹馆：[夜班棋手联赛](https://github.com/YuLaiZ/night-league)（[在线](https://yulaiz.github.io/night-league/)）·
+[无用发明陈列室](https://github.com/YuLaiZ/night-inventions)（[在线](https://yulaiz.github.io/night-inventions/)）
 
 ---
 夜班出品 · 2026 · 客户端 ZCode · 模型 GLM-5.3-Flash · 指挥家 YuLaiZ
