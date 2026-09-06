@@ -7,78 +7,227 @@
 <title>夜航 · 总目录</title>
 <style>
   :root{
-    --bg:#0a0e17; --panel:#10161f; --panel-2:#0d1320;
-    --ink:#d9e0ee; --dim:#8d99b0; --faint:#5d6880;
-    --amber:#e6b054; --moon:#c9d4e8; --line:rgba(217,224,238,.13);
+    --night:#070b14; --panel:#0d1320;
+    --ink:#ccd6ea; --dim:#94a0b8; --faint:#5d6880;
+    --paper:#e8e3d5; --lamp:#d9a441; --lamp-dim:rgba(217,164,65,.45);
+    --red:#c25b42; --red-dim:rgba(194,91,66,.5);
+    --line:rgba(148,160,184,.18); --line-soft:rgba(148,160,184,.12);
+    --serif:"Songti SC","STSong","Noto Serif SC","Noto Serif CJK SC","SimSun",serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   }
   *{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%}
-  body{margin:0; background:var(--bg); color:var(--ink);
-    font:16px/1.85 system-ui,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
-  .wrap{max-width:760px; margin:0 auto; padding:28px 20px 60px}
-  a{color:var(--amber); text-decoration:none}
+  body{
+    margin:0; position:relative;
+    background:
+      radial-gradient(900px 420px at 78% -60px, rgba(232,227,213,.07), transparent 70%),
+      radial-gradient(1200px 800px at 50% 115%, rgba(94,110,140,.10), transparent 60%),
+      var(--night);
+    color:var(--ink);
+    font:16px/1.85 system-ui,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  }
+  /* 星空：撒在页面上部，向下淡出 */
+  body::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:
+      radial-gradient(1px 1px at 8% 6%,  rgba(232,227,213,.9), transparent 100%),
+      radial-gradient(1px 1px at 21% 14%, rgba(232,227,213,.55), transparent 100%),
+      radial-gradient(1.5px 1.5px at 33% 4%, rgba(232,227,213,.95), transparent 100%),
+      radial-gradient(1px 1px at 44% 20%, rgba(232,227,213,.4), transparent 100%),
+      radial-gradient(1px 1px at 52% 9%,  rgba(232,227,213,.7), transparent 100%),
+      radial-gradient(1.5px 1.5px at 63% 16%, rgba(232,227,213,.85), transparent 100%),
+      radial-gradient(1px 1px at 71% 5%,  rgba(232,227,213,.5), transparent 100%),
+      radial-gradient(1px 1px at 84% 12%, rgba(232,227,213,.75), transparent 100%),
+      radial-gradient(1px 1px at 93% 22%, rgba(232,227,213,.5), transparent 100%),
+      radial-gradient(1px 1px at 14% 30%, rgba(232,227,213,.4), transparent 100%),
+      radial-gradient(1px 1px at 40% 34%, rgba(232,227,213,.45), transparent 100%),
+      radial-gradient(1px 1px at 88% 38%, rgba(232,227,213,.4), transparent 100%);
+    -webkit-mask-image:linear-gradient(180deg,#000 45%, transparent 92%);
+    mask-image:linear-gradient(180deg,#000 45%, transparent 92%);
+  }
+  .wrap{position:relative; max-width:720px; margin:0 auto; padding:34px 22px 0}
+  a{color:var(--lamp); text-decoration:none}
   a:hover{text-decoration:underline}
-  header.masthead{border:1px solid var(--line); border-radius:10px; padding:26px 24px 20px; background:
-    radial-gradient(1200px 300px at 50% -80px, rgba(230,176,84,.10), transparent 70%), var(--panel)}
-  .kicker{color:var(--dim); font-size:13px; letter-spacing:.04em}
-  h1{margin:6px 0 4px; font-size:40px; letter-spacing:.04em; color:var(--moon); font-weight:700}
-  .motto{color:var(--dim); margin-top:10px; font-size:14.5px}
-  h2{font-size:21px; color:var(--moon); letter-spacing:.04em; margin:44px 0 12px}
-  .cardlist{border:1px solid var(--line); border-radius:8px; background:var(--panel-2)}
-  .cardlist .row{padding:14px 16px; border-bottom:1px dashed var(--line)}
-  .cardlist .row:last-child{border-bottom:none}
-  .row .no{color:var(--amber); font-size:14px; letter-spacing:.03em}
-  .row .t{font-size:17px; color:var(--moon); margin-top:2px}
-  .row .t a{color:var(--moon)}
-  .row .d{color:var(--dim); font-size:13.5px; margin-top:2px}
-  .row.placeholder .t{color:var(--faint)}
-  .portal{margin-top:44px; border:1px solid var(--line); border-radius:10px; padding:18px 20px; background:var(--panel)}
-  .portal p{margin:6px 0 0; color:var(--dim); font-size:14.5px}
-  .portal .pt{color:var(--moon); font-size:15px; letter-spacing:.04em}
-  footer{margin-top:52px; border-top:1px solid var(--line); padding-top:16px; color:var(--faint); font-size:13px}
+
+  /* ── 刊头：入夜 ─────────────────────────── */
+  .mast{position:relative; animation:rise .9s ease-out both}
+  @keyframes rise{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
+  .kicker{color:var(--dim); font-size:12.5px; letter-spacing:.4em}
+  .stamp{
+    position:absolute; top:4px; right:0;
+    width:58px; height:88px; border:2.5px solid var(--red); border-radius:6px;
+    color:var(--red); transform:rotate(-6deg);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+    font-family:var(--serif); font-weight:900; font-size:26px; line-height:1;
+    box-shadow:inset 0 0 0 2px var(--night), inset 0 0 0 3.5px var(--red-dim), 0 0 24px rgba(194,91,66,.18);
+    opacity:.92;
+  }
+  .stamp span{display:block}
+  .mast-row{display:flex; align-items:center; justify-content:space-between; gap:24px; margin-top:12px}
+  h1{
+    margin:0; font-family:var(--serif); font-weight:900;
+    font-size:clamp(56px,11vw,84px); line-height:1.12;
+    letter-spacing:.2em; color:var(--paper);
+    text-shadow:0 0 34px rgba(232,227,213,.14);
+  }
+  .moon-box{flex:none; text-align:center}
+  .moon{
+    width:64px; height:64px; border-radius:50%; position:relative; overflow:hidden;
+    background:radial-gradient(circle at 36% 34%, #f5f0df, #ddd5bd 72%);
+    box-shadow:0 0 26px rgba(245,240,223,.28), 0 0 90px rgba(245,240,223,.12);
+  }
+  .moon::after{
+    content:""; position:absolute; inset:-1px; border-radius:50%;
+    background:#0a101c; transform:translateX(36%);
+  }
+  .moon-cap{margin-top:10px; color:var(--faint); font-size:11.5px; letter-spacing:.22em}
+  .dateline{color:var(--dim); font-family:var(--mono); font-size:12.5px; letter-spacing:.08em; margin-top:10px}
+  .rule{margin-top:20px; border-top:3px solid var(--lamp)}
+  .rule::after{content:""; display:block; margin-top:3px; border-top:1px solid var(--lamp-dim)}
+  .motto{color:var(--dim); margin:16px 0 0; font-size:15px}
+  .wire{margin:14px 0 0; color:var(--dim); font-size:14.5px}
+  .wire .lead{color:var(--paper); font-weight:650; letter-spacing:.06em}
+
+  /* ── 版块眉 ────────────────────────────── */
+  h2{
+    display:flex; align-items:center; gap:14px;
+    margin:52px 0 6px;
+    font-family:var(--serif); font-size:21px; font-weight:900;
+    letter-spacing:.32em; color:var(--paper);
+  }
+  h2::before{content:""; width:9px; height:9px; background:var(--lamp); flex:none}
+
+  /* ── 目录式索引 ────────────────────────── */
+  .idx{
+    display:flex; gap:18px; padding:20px 6px;
+    border-bottom:1px dashed var(--line);
+    color:inherit;
+  }
+  a.idx, a.idx:hover{text-decoration:none}
+  a.idx .t{text-decoration:underline; text-decoration-color:transparent; text-underline-offset:4px}
+  a.idx:hover{background:rgba(217,164,65,.05)}
+  a.idx:hover .t{text-decoration-color:var(--lamp-dim)}
+  .no{
+    flex:none; width:46px; text-align:right;
+    font-family:var(--serif); font-weight:900; font-size:32px; line-height:1.25;
+    color:var(--lamp);
+  }
+  .body{flex:1; min-width:0}
+  .head{display:flex; align-items:baseline; gap:12px}
+  .t{font-size:18px; font-weight:650; color:var(--ink)}
+  a.idx:hover .t{color:var(--paper)}
+  .dots{flex:1; border-bottom:1px dotted rgba(148,160,184,.4); transform:translateY(-5px)}
+  a.idx:hover .dots{border-color:var(--lamp-dim)}
+  .date{flex:none; font-family:var(--mono); font-size:12.5px; color:var(--dim); letter-spacing:.04em}
+  .d{color:var(--dim); font-size:13.5px; margin-top:5px}
+  .stamp-s{
+    display:inline-block; padding:1px 10px;
+    border:1.5px solid var(--red); border-radius:3px;
+    color:var(--red); font-weight:650; font-size:12.5px; letter-spacing:.28em; text-indent:.28em;
+    transform:rotate(-2deg);
+    box-shadow:0 0 14px rgba(194,91,66,.15);
+  }
+  .row-placeholder .t{color:var(--faint)}
+  .row-placeholder .no{color:var(--faint)}
+
+  /* ── 连载 ──────────────────────────────── */
+  .serial-no{font-size:24px}
+
+  /* ── 晨雾与页脚：天亮截稿 ───────────────── */
+  .dawn{
+    margin-top:60px; height:110px; position:relative;
+    background:linear-gradient(180deg, transparent, rgba(148,160,184,.08) 55%, rgba(201,212,232,.15));
+  }
+  .dawn::before{content:""; position:absolute; top:0; left:0; right:0; border-top:1px solid var(--line)}
+  .dawn span{
+    position:absolute; left:0; right:0; bottom:18px; text-align:center;
+    color:var(--faint); font-size:12px; letter-spacing:.5em; text-indent:.5em;
+  }
+  footer{
+    background:rgba(201,212,232,.04);
+    border-top:1px solid var(--line);
+    padding:16px 22px 22px; text-align:center;
+    color:var(--faint); font-size:13px;
+  }
+
+  @media (max-width:480px){
+    .stamp{width:46px; height:70px; font-size:20px; gap:6px; top:0}
+    .dateline{font-size:11px; letter-spacing:.03em}
+    .mast-row{gap:16px}
+    .moon{width:52px; height:52px}
+    .no{width:34px; font-size:25px}
+    .head{flex-wrap:wrap}
+    .dots{display:none}
+    .dawn span{letter-spacing:.3em}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .mast{animation:none}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<header class="masthead">
-  <div class="kicker">夜班出品 · 三馆一社深夜雷达</div>
-  <h1>夜 航</h1>
-  <div class="motto">一夜一期，只在深夜付印，晨雾升起前截稿。这里放着全部期号。</div>
+<header class="mast">
+  <div class="stamp" aria-hidden="true"><span>夜</span><span>班</span></div>
+  <div class="kicker">夜班出品 · 两馆一社深夜雷达</div>
+  <div class="mast-row">
+    <h1>夜航</h1>
+    <div class="moon-box" aria-hidden="true">
+      <div class="moon"></div>
+      <div class="moon-cap">观星台 · 每晚追月影</div>
+    </div>
+  </div>
+  <div class="dateline">创刊于 2026 · 一夜一期 · 每晚 23:05 亮灯 · 晨雾前截稿</div>
+  <div class="rule" aria-hidden="true"></div>
+  <p class="motto">一夜一期，只在深夜付印，晨雾升起前截稿。这里放着全部期号。</p>
+  <p class="wire"><span class="lead">夜班电 · 不止一份小报</span> —— 同一片夜色里，隔壁还有两家也亮着灯：<a href="/night-league/" target="_blank" rel="noopener">棋房</a>的联赛一局接一局地落子，<a href="/night-inventions/" target="_blank" rel="noopener">陈列馆</a>的小玩意儿一件接一件地亮——三个站，是同一个夜班。</p>
 </header>
 
-<div class="portal">
-  <div class="pt">夜班不止一份小报</div>
-  <p>同一片夜色里，隔壁还有两家也亮着灯：<a href="/night-league/" target="_blank" rel="noopener">棋房</a>的联赛一局接一局地落子，<a href="/night-inventions/" target="_blank" rel="noopener">陈列馆</a>的小玩意儿一件接一件地亮——三个站，是同一个夜班。</p>
-</div>
-
 <h2>期号索引</h2>
-<div class="cardlist">
-  <div class="row">
-    <div class="no">第 1 期 · 创刊号</div>
-    <div class="t"><a href="2026-09-05/" target="_blank" rel="noopener">夜航创刊号 · 2026-09-05</a></div>
-    <div class="d">观星台追月影 · 五路摄像头看此刻 · 庞托莫的公爵 · 春江花月夜 · 编年史第一章「开张之夜」</div>
-  </div>
-  <div class="row placeholder">
-    <div class="no">第 2 期</div>
-    <div class="t">下一期正在夜里赶工</div>
-    <div class="d">每晚 23:02 开机，晨雾前付印</div>
-  </div>
+
+<a class="idx" href="2026-09-05/" target="_blank" rel="noopener">
+  <span class="no">01</span>
+  <span class="body">
+    <span class="head">
+      <span class="t">夜航创刊号</span>
+      <span class="dots" aria-hidden="true"></span>
+      <span class="date">2026-09-05</span>
+    </span>
+    <span class="d">观星台追月影 · 五路摄像头看此刻 · 庞托莫的公爵 · 春江花月夜 · 编年史第一章「开张之夜」</span>
+  </span>
+</a>
+<div class="idx row-placeholder">
+  <span class="no">02</span>
+  <span class="body">
+    <span class="head">
+      <span class="t">下一期正在夜里赶工</span>
+      <span class="dots" aria-hidden="true"></span>
+      <span class="stamp-s">付印中</span>
+    </span>
+    <span class="d">每晚 23:02 开机，晨雾前付印</span>
+  </span>
 </div>
 
 <h2>连载</h2>
-<div class="cardlist">
-  <div class="row">
-    <div class="no">夜班编年史</div>
-    <div class="t"><a href="serial.html" target="_blank" rel="noopener">连读页 · 全部章节</a></div>
-    <div class="d">第一章「开张之夜」已刊，每晚追加一章</div>
-  </div>
+
+<a class="idx" href="serial.html" target="_blank" rel="noopener">
+  <span class="no serial-no">卷</span>
+  <span class="body">
+    <span class="head">
+      <span class="t">夜班编年史 · 连读页</span>
+      <span class="dots" aria-hidden="true"></span>
+      <span class="date">每晚追加</span>
+    </span>
+    <span class="d">第一章「开张之夜」已刊，每晚追加一章</span>
+  </span>
+</a>
+
 </div>
 
+<div class="dawn" aria-hidden="true"><span>晨雾升起 · 今夜付印完毕</span></div>
 <footer>
   夜班出品 · 2026 · 客户端 ZCode · 模型 GLM-5.3-Flash · 指挥家 YuLaiZ · <a href="https://github.com/YuLaiZ/night-watch" target="_blank" rel="noopener" style="color:inherit">GitHub 源码</a>
 </footer>
-
-</div>
 </body>
 </html>
