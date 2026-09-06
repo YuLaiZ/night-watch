@@ -3,22 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>夜航杂志 · 创刊筹备中</title>
+<meta name="description" content="夜航 · 夜班杂志总目录：一夜一期，只在深夜付印。">
+<title>夜航 · 总目录</title>
 <style>
-body{font-family:system-ui,-apple-system,"PingFang SC",sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#0d1117;color:#d8dee6}
-main{text-align:center;padding:2rem}
-h1{font-size:1.6rem}p{opacity:.7;line-height:1.9}
-a{color:#7ab8ff}
-footer{margin-top:2rem;font-size:.8rem;opacity:.55}
+  :root{
+    --bg:#0a0e17; --panel:#10161f; --panel-2:#0d1320;
+    --ink:#d9e0ee; --dim:#8d99b0; --faint:#5d6880;
+    --amber:#e6b054; --moon:#c9d4e8; --line:rgba(217,224,238,.13);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.85 system-ui,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
+  .wrap{max-width:760px; margin:0 auto; padding:28px 20px 60px}
+  a{color:var(--amber); text-decoration:none}
+  a:hover{text-decoration:underline}
+  header.masthead{border:1px solid var(--line); border-radius:10px; padding:26px 24px 20px; background:
+    radial-gradient(1200px 300px at 50% -80px, rgba(230,176,84,.10), transparent 70%), var(--panel)}
+  .kicker{color:var(--dim); font-size:13px; letter-spacing:.04em}
+  h1{margin:6px 0 4px; font-size:40px; letter-spacing:.04em; color:var(--moon); font-weight:700}
+  .motto{color:var(--dim); margin-top:10px; font-size:14.5px}
+  h2{font-size:21px; color:var(--moon); letter-spacing:.04em; margin:44px 0 12px}
+  .cardlist{border:1px solid var(--line); border-radius:8px; background:var(--panel-2)}
+  .cardlist .row{padding:14px 16px; border-bottom:1px dashed var(--line)}
+  .cardlist .row:last-child{border-bottom:none}
+  .row .no{color:var(--amber); font-size:14px; letter-spacing:.03em}
+  .row .t{font-size:17px; color:var(--moon); margin-top:2px}
+  .row .t a{color:var(--moon)}
+  .row .d{color:var(--dim); font-size:13.5px; margin-top:2px}
+  .row.placeholder .t{color:var(--faint)}
+  .portal{margin-top:44px; border:1px solid var(--line); border-radius:10px; padding:18px 20px; background:var(--panel)}
+  .portal p{margin:6px 0 0; color:var(--dim); font-size:14.5px}
+  .portal .pt{color:var(--moon); font-size:15px; letter-spacing:.04em}
+  footer{margin-top:52px; border-top:1px solid var(--line); padding-top:16px; color:var(--faint); font-size:13px}
 </style>
 </head>
 <body>
-<main>
-<h1>夜航杂志 · 创刊筹备中</h1>
-<p>观星台、世界此刻、夜班美术馆、夜班书房正在连夜布展。<br>
-今晚 23:02 创刊号试印——看星、看街、看画、读书，最后连载一章。</p>
-<p>同一场深夜里：<a href="https://yulaiz.github.io/night-league/">隔壁棋房正落子</a>，一局接一局；<a href="https://yulaiz.github.io/night-inventions/">工坊里的小玩意儿</a>做完一件挂一件。</p>
-<footer>夜班出品 · 2026 · 客户端 ZCode · 模型 GLM-5.3-Flash · 指挥家 YuLaiZ</footer>
-</main>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="kicker">夜班出品 · 三馆一社深夜雷达</div>
+  <h1>夜 航</h1>
+  <div class="motto">一夜一期，只在深夜付印，晨雾升起前截稿。这里放着全部期号。</div>
+</header>
+
+<div class="portal">
+  <div class="pt">夜班不止一份小报</div>
+  <p>同一片夜色里，隔壁还有两家也亮着灯：<a href="/night-league/" target="_blank" rel="noopener">棋房</a>的联赛一局接一局地落子，<a href="/night-inventions/" target="_blank" rel="noopener">陈列馆</a>的小玩意儿一件接一件地亮——三个站，是同一个夜班。</p>
+</div>
+
+<h2>期号索引</h2>
+<div class="cardlist">
+  <div class="row">
+    <div class="no">第 1 期 · 创刊号</div>
+    <div class="t"><a href="2026-09-05/" target="_blank" rel="noopener">夜航创刊号 · 2026-09-05</a></div>
+    <div class="d">观星台追月影 · 三台摄像头看此刻 · 庞托莫的公爵 · 春江花月夜 · 编年史第一章「开张之夜」</div>
+  </div>
+  <div class="row placeholder">
+    <div class="no">第 2 期</div>
+    <div class="t">下一期正在夜里赶工</div>
+    <div class="d">每晚 23:02 开机，晨雾前付印</div>
+  </div>
+</div>
+
+<h2>连载</h2>
+<div class="cardlist">
+  <div class="row">
+    <div class="no">夜班编年史</div>
+    <div class="t"><a href="serial.html" target="_blank" rel="noopener">连读页 · 全部章节</a></div>
+    <div class="d">第一章「开张之夜」已刊，每晚追加一章</div>
+  </div>
+</div>
+
+<footer>
+  夜班出品 · 2026 · 客户端 ZCode · 模型 GLM-5.3-Flash · 指挥家 YuLaiZ · <a href="https://github.com/YuLaiZ/night-watch" target="_blank" rel="noopener" style="color:inherit">GitHub 源码</a>
+</footer>
+
+</div>
 </body>
 </html>
