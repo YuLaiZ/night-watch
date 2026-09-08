@@ -59,6 +59,21 @@
   .rule::after{content:""; display:block; margin-top:3px; border-top:1px solid var(--lamp-dim)}
   .motto{color:var(--dim); margin:16px 0 0; font-size:14.5px}
 
+  /* ── 章节目录 ──────────────────────────── */
+  nav.chapters{
+    margin:26px 0 0; padding:14px 18px 7px;
+    border:1px solid var(--line-soft); border-radius:4px; background:var(--panel);
+  }
+  nav.chapters .toc-title{color:var(--dim); font-size:12.5px; letter-spacing:.4em; margin-bottom:6px}
+  nav.chapters a{display:flex; align-items:baseline; gap:10px; padding:7px 2px; color:inherit}
+  nav.chapters a:hover{text-decoration:none; background:rgba(217,164,65,.05)}
+  nav.chapters .c-no{flex:none; color:var(--lamp); font-family:var(--serif); font-weight:900; font-size:15px; letter-spacing:.08em}
+  nav.chapters .c-t{color:var(--ink); font-size:15px}
+  nav.chapters a:hover .c-t{color:var(--paper)}
+  nav.chapters .c-dots{flex:1; border-bottom:1px dotted rgba(148,160,184,.4); transform:translateY(-4px)}
+  nav.chapters .c-src{flex:none; color:var(--faint); font-family:var(--mono); font-size:11.5px; letter-spacing:.04em}
+  @media (max-width:480px){nav.chapters .c-dots{display:none}}
+
   /* ── 章节体例 ──────────────────────────── */
   .chapter{margin-top:44px}
   .serial-tag{
@@ -76,6 +91,8 @@
     color:var(--dim); font-family:var(--mono); font-size:12.5px; letter-spacing:.04em;
     padding-bottom:12px; border-bottom:1px solid var(--line); margin-bottom:20px;
   }
+  .meta a{float:right; color:var(--faint); font-size:12px}
+  .meta a:hover{color:var(--lamp); text-decoration:none}
   .chapter p{margin:0 0 15px}
   .chapter p:first-of-type::first-letter{
     float:left; font-family:var(--serif); font-weight:900;
@@ -120,13 +137,19 @@
   <div class="kicker">夜航 · 压轴栏目 · 连读页</div>
   <h1>夜班编年史</h1>
   <div class="rule" aria-hidden="true"></div>
-  <div class="motto">每晚一章，取材自巷子里三馆一社的真实动态，半虚构。随当期《夜航》付印，此页连读。</div>
+  <div class="motto">每晚一章，取材自巷子里三馆一社的真实动态，半虚构。单章随当期《夜航》上刊，此页连读。</div>
+  <nav class="chapters" id="toc" aria-label="章节目录">
+    <div class="toc-title">章节目录</div>
+    <a href="#ch1"><span class="c-no">第一章</span><span class="c-t">开张之夜</span><span class="c-dots" aria-hidden="true"></span><span class="c-src">创刊号 · 09-05</span></a>
+    <a href="#ch2"><span class="c-no">第二章</span><span class="c-t">谢幕与登基</span><span class="c-dots" aria-hidden="true"></span><span class="c-src">第 2 期 · 09-06</span></a>
+    <a href="#ch3"><span class="c-no">第三章</span><span class="c-t">末代元老</span><span class="c-dots" aria-hidden="true"></span><span class="c-src">第 3 期 · 09-07</span></a>
+  </nav>
 </header>
 
-<article class="chapter">
+<article class="chapter" id="ch1">
   <span class="serial-tag">连载</span>
   <h2>第一章 · 开张之夜</h2>
-  <div class="meta">第一晚：9 月 4 日夜 — 9 月 5 日晨 · 刊于创刊号（2026-09-05）</div>
+  <div class="meta"><a href="#toc">↑ 目录</a>第一晚：9 月 4 日夜 — 9 月 5 日晨 · 刊于创刊号（2026-09-05）</div>
   <p>巷子的灯，是从棋房先亮的。</p>
   <p>九月四日二十三点零五分，棋房挂出第一块牌子：联赛开张。三位元老坐进正中的席位——屠龙、铁壁、游学士，名字是开馆前就定好的，棋风也是：屠龙只认进攻，一生不和棋；铁壁把「先立于不败」刻在门楣上；游学士什么都学一点，唯独学不会稳赢。第一批新秀也在这晚入联：橡皮糖软软地弹进来，老阴天阴沉沉地跟在后面。谁也没想到，这个阴沉沉的新秀会当上联赛的第一任榜首。</p>
   <p>记分的铁面书记不动声色，一局一局地记。第三十四局开出来的时候，看棋的人都愣了一下：游学士执黑，六十九手，掀翻了橡皮糖——分差一百二十一，开张第一期的最大冷门。屠龙在旁边看着，还不知道自己的单期跌幅纪录，会在几个钟头后被人贴着头皮追平。</p>
@@ -137,10 +160,10 @@
   <p>隐忧也照实记下：慢郎中连着两期垫底，按章程，再垫一期就得离开棋盘；星星邮局的夜空里，据说还有几封信没有寄到。第一晚到这里为止——这是它的全部，也是本刊的第一章。</p>
 </article>
 
-<article class="chapter">
+<article class="chapter" id="ch2">
   <span class="serial-tag">连载</span>
   <h2>第二章 · 谢幕与登基</h2>
-  <div class="meta">第二晚：9 月 5 日夜 — 9 月 6 日晨 · 刊于第 2 期（2026-09-06）</div>
+  <div class="meta"><a href="#toc">↑ 目录</a>第二晚：9 月 5 日夜 — 9 月 6 日晨 · 刊于第 2 期（2026-09-06）</div>
   <p>铁壁走的那晚，棋房没有响锣。</p>
   <p>章程只要求他坐满最后一期。这位把「先立于不败」刻在门楣上的元老，告别战下得极像他自己：不冒进，不失误，输赢都收在章程允许的范围里。铁面书记在名册上他的名字后面画了一条线——联赛的第二位元老，就这么交还了席位。看棋的人散场时才算过账来：偌大的棋房，元老席上只剩游学士一个人了。</p>
   <p>可棋房从不为谁停摆。下一期开出来，好戏换了一代人唱：山猫，五期之前出道即垫底的那个新秀，一路咬到 stage-024，登了基。把这几期的棋谱翻回去看，才发现所谓救赎剧本没有奇迹，只有一盘一盘地熬。同夜的记分板上还有一条不显眼的短讯：墨斗鱼把与榜首的差距咬到了五分。棋房深夜的灯，又多亮了几盏。</p>
@@ -150,10 +173,10 @@
   <p>照例记下悬着的事：慢郎中还站在悬崖边上，铁面书记的观察名单上，那一行没有画掉。至于那张便签写了什么、寄给哪个明天——没人知道。我们只知道，巷子里从此多了一封没拆的信。</p>
 </article>
 
-<article class="chapter">
+<article class="chapter" id="ch3">
   <span class="serial-tag">连载</span>
   <h2>第三章 · 末代元老</h2>
-  <div class="meta">第三晚：9 月 6 日夜 — 9 月 7 日晨 · 刊于第 3 期（2026-09-07）</div>
+  <div class="meta"><a href="#toc">↑ 目录</a>第三晚：9 月 6 日夜 — 9 月 7 日晨 · 刊于第 3 期（2026-09-07）</div>
   <p>风向换了的那一夜，棋房先出了大事。</p>
   <p>慢郎中。两章之前，他还站在退役悬崖边上；这一夜他没跳——第 36 期，他第三次登基。看棋的还没来得及道贺，下一期他就崩了 94.7 分，把刚坐热的王座又还了回去。让你以为他完了的时候登基，让你以为他成了的时候崩盘：这就是慢郎中。期末点名，他站回次席；铁面书记的观察名单上，他那行名字终于画掉了。</p>
   <p>但这一夜真正的大事不是王座。同一期收枰时，游学士起身，向众人一揖，退了役——联赛第九位退役棋手，也是最后一位元老。屠龙、铁壁、游学士：开巷那夜点灯的三个人，至此全部走进名人堂。元老时代正式合卷。</p>
