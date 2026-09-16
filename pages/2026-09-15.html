@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="../assets/logo/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/logo/favicon-32.png">
+<link rel="icon" type="image/x-icon" href="../assets/logo/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/logo/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="夜航 · 夜班杂志第 11 期：观星台、世界此刻、夜班美术馆、谜题角、夜班编年史等十个栏目，一份只在深夜付印的小报。">
+<title>夜航 · 第 11 期（2026-09-15）</title>
+<style>
+  :root{
+    --night:#070b14; --panel:#0d1320;
+    --ink:#ccd6ea; --dim:#94a0b8; --faint:#5d6880;
+    --paper:#e8e3d5; --lamp:#d9a441; --lamp-dim:rgba(217,164,65,.45);
+    --red:#c25b42; --red-dim:rgba(194,91,66,.5);
+    --line:rgba(148,160,184,.18); --line-soft:rgba(148,160,184,.12);
+    --serif:"Songti SC","STSong","Noto Serif SC","Noto Serif CJK SC","SimSun",serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; position:relative;
+    background:
+      radial-gradient(900px 420px at 78% -60px, rgba(232,227,213,.07), transparent 70%),
+      radial-gradient(1200px 800px at 50% 115%, rgba(94,110,140,.10), transparent 60%),
+      var(--night);
+    color:var(--ink);
+    font:16px/1.8 system-ui,-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  }
+  body::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:
+      radial-gradient(1px 1px at 8% 4%,  rgba(232,227,213,.9), transparent 100%),
+      radial-gradient(1px 1px at 21% 9%, rgba(232,227,213,.55), transparent 100%),
+      radial-gradient(1.5px 1.5px at 33% 3%, rgba(232,227,213,.95), transparent 100%),
+      radial-gradient(1px 1px at 52% 7%,  rgba(232,227,213,.7), transparent 100%),
+      radial-gradient(1.5px 1.5px at 63% 11%, rgba(232,227,213,.85), transparent 100%),
+      radial-gradient(1px 1px at 84% 9%, rgba(232,227,213,.75), transparent 100%),
+      radial-gradient(1px 1px at 93% 16%, rgba(232,227,213,.5), transparent 100%),
+      radial-gradient(1px 1px at 14% 22%, rgba(232,227,213,.4), transparent 100%),
+      radial-gradient(1px 1px at 44% 25%, rgba(232,227,213,.45), transparent 100%);
+    -webkit-mask-image:linear-gradient(180deg,#000 20%, transparent 55%);
+    mask-image:linear-gradient(180deg,#000 20%, transparent 55%);
+  }
+  .wrap{position:relative; max-width:720px; margin:0 auto; padding:30px 22px 0}
+  a{color:var(--lamp); text-decoration:none}
+  a:hover{text-decoration:underline}
+  img{max-width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:3px}
+
+  /* ── 刊头 ──────────────────────────────── */
+  .mast{position:relative; animation:rise .9s ease-out both}
+  @keyframes rise{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
+  .home{font-size:13px; margin-bottom:16px}
+  .home a{color:var(--dim)}
+  .home a:hover{color:var(--lamp)}
+  .kicker{color:var(--dim); font-size:12.5px; letter-spacing:.4em}
+  .stamp{
+    position:absolute; top:40px; right:0;
+    width:54px; height:82px; border:2.5px solid var(--red); border-radius:6px;
+    color:var(--red); transform:rotate(-6deg);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:7px;
+    font-family:var(--serif); font-weight:900; font-size:24px; line-height:1;
+    box-shadow:inset 0 0 0 2px var(--night), inset 0 0 0 3.5px var(--red-dim), 0 0 24px rgba(194,91,66,.18);
+    opacity:.92;
+  }
+  .stamp span{display:block}
+  h1{
+    margin:10px 0 0; font-family:var(--serif); font-weight:900;
+    font-size:clamp(52px,10vw,76px); line-height:1.12; letter-spacing:.2em;
+    color:var(--paper); text-shadow:0 0 34px rgba(232,227,213,.14);
+  }
+  .dateline{color:var(--dim); font-family:var(--mono); font-size:12.5px; letter-spacing:.08em; margin-top:10px}
+  .dateline b{color:var(--lamp); font-weight:600}
+  .motto{color:var(--dim); margin:14px 0 0; font-size:14.5px}
+  .rule{margin-top:18px; border-top:3px solid var(--lamp)}
+  .rule::after{content:""; display:block; margin-top:3px; border-top:1px solid var(--lamp-dim)}
+  nav.toc{margin-top:16px; font-size:13.5px; color:var(--dim)}
+  nav.toc a{color:var(--ink); margin-right:2px; white-space:nowrap}
+  nav.toc a:hover{color:var(--lamp)}
+
+  /* ── 栏目体例 ──────────────────────────── */
+  section{margin-top:46px}
+  .col-head{
+    display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+    border-top:3px solid var(--lamp); padding-top:10px; margin-bottom:16px;
+    position:relative;
+  }
+  .col-head::after{content:""; position:absolute; top:4px; left:0; right:0; border-top:1px solid var(--lamp-dim)}
+  .col-head h2{margin:0; font-family:var(--serif); font-weight:900; font-size:25px; letter-spacing:.2em; color:var(--paper)}
+  .col-head .en{color:var(--faint); font-family:var(--mono); font-size:11.5px; letter-spacing:.14em}
+  .timebox{margin-left:auto; color:var(--faint); font-family:var(--mono); font-size:11.5px}
+  .col-head .up{margin-left:10px; color:var(--faint); font-size:12px}
+  .col-head .up:hover{color:var(--lamp); text-decoration:underline}
+  p{margin:0 0 13px}
+  .note{color:var(--dim); font-size:13px}
+  figure{margin:16px 0}
+  figcaption{color:var(--dim); font-size:12.5px; margin-top:9px; line-height:1.75}
+  .timeline{padding-left:22px; margin:0}
+  .timeline li{margin:0 0 11px}
+  .timeline em{color:var(--dim)}
+
+  /* ── 引文与谜题 ────────────────────────── */
+  blockquote{
+    margin:18px 0; padding:0; border:none; text-align:center;
+    font-family:var(--serif); font-size:17.5px; line-height:2.15; color:var(--paper);
+  }
+  blockquote p{margin:0}
+  .annotate{
+    margin-top:18px; padding:14px 18px; border-left:3px solid var(--red);
+    background:rgba(194,91,66,.06); font-size:15px; border-radius:0 3px 3px 0;
+  }
+  .annotate strong{color:var(--red)}
+  .puzzle{border:1px solid var(--line); border-radius:4px; padding:16px; background:var(--panel); margin:14px 0; overflow-x:auto}
+  table.sudo{border-collapse:collapse; margin:6px auto}
+  table.sudo td{
+    width:40px; height:40px; text-align:center; font-size:19px; color:var(--ink);
+    border:1px solid var(--line); background:var(--night)
+  }
+  table.sudo td.g{color:var(--lamp); font-weight:700}
+  table.sudo td.b3{border-right:2px solid rgba(217,224,238,.35)}
+  table.sudo td.b2{border-bottom:2px solid rgba(217,224,238,.35)}
+  ol.clues{padding-left:22px; margin:0}
+  ol.clues li{margin:0 0 9px}
+  table.answer{border-collapse:collapse; margin:6px auto}
+  table.answer th, table.answer td{
+    border:1px solid var(--line); padding:7px 18px; text-align:center;
+    font-size:15px; color:var(--ink); background:var(--night)
+  }
+  table.answer th{color:var(--dim); font-weight:600; font-size:13px; letter-spacing:.1em}
+
+  /* ── 夜班编年史 ────────────────────────── */
+  .chron h3{margin:14px 0 6px; font-family:var(--serif); font-weight:900; font-size:24px; letter-spacing:.1em; color:var(--paper)}
+  .chron .meta{color:var(--dim); font-family:var(--mono); font-size:12.5px; letter-spacing:.04em; padding-bottom:12px; border-bottom:1px solid var(--line); margin-bottom:20px}
+  .chron p{margin:0 0 15px}
+  .chron p:first-of-type::first-letter{
+    float:left; font-family:var(--serif); font-weight:900;
+    font-size:3.1em; line-height:1; padding:6px 10px 0 0; color:var(--paper);
+  }
+
+  /* ── 晨雾与页脚 ────────────────────────── */
+  .dawn{
+    margin-top:60px; height:110px; position:relative;
+    background:linear-gradient(180deg, transparent, rgba(148,160,184,.08) 55%, rgba(201,212,232,.15));
+  }
+  .dawn::before{content:""; position:absolute; top:0; left:0; right:0; border-top:1px solid var(--line)}
+  .dawn span{
+    position:absolute; left:0; right:0; bottom:18px; text-align:center;
+    color:var(--faint); font-size:12px; letter-spacing:.5em; text-indent:.5em;
+  }
+  footer{
+    background:rgba(201,212,232,.04);
+    border-top:1px solid var(--line);
+    padding:16px 22px 22px; text-align:center;
+    color:var(--faint); font-size:13px;
+  }
+
+  @media (max-width:480px){
+    .stamp{width:44px; height:68px; font-size:19px; gap:5px; top:34px}
+    .col-head h2{font-size:22px}
+    .dawn span{letter-spacing:.3em}
+    table.sudo td{width:34px; height:34px; font-size:16px}
+    table.answer th, table.answer td{padding:6px 10px; font-size:14px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .mast{animation:none}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast" id="top">
+  <div class="home"><a href="../">← 夜航 · 总目录</a></div>
+  <div class="stamp" aria-hidden="true"><span>夜</span><span>班</span></div>
+  <div class="kicker">夜班出品 · 两馆一社深夜雷达</div>
+  <h1>夜航</h1>
+  <div class="dateline"><b>第 11 期</b> · 2026-09-15 · 深夜付印</div>
+  <div class="rule" aria-hidden="true"></div>
+  <p class="motto">两家馆、一家社——巷历翻到第十一夜，卷尾只剩四页；月亮白天先去会了金星，夜里轮到巷子值班。</p>
+  <nav class="toc">
+    本期栏目：
+    <a href="#observatory">观星台</a> · <a href="#moment">世界此刻</a> · <a href="#history">历史上的今天</a> ·
+    <a href="#gallery">夜班美术馆</a> · <a href="#notes">夜航手记</a> · <a href="#cosmos">今日宇宙</a> ·
+    <a href="#study">夜班书房</a> · <a href="#word">每日一词</a> · <a href="#puzzle">谜题角</a> ·
+    <a href="#chronicle">夜班编年史</a>
+  </nav>
+</header>
+
+<section id="observatory"><div class="col-head"><h2>观星台</h2><span class="en">OBSERVATORY</span><span class="timebox">约 10 分钟</span><a class="up" href="#top">↑ 目录</a></div>
+  <figure>
+    <img src="../assets/2026-09-15/apod.jpg" width="1410" height="1590" alt="白天的蓝天上，月亮的暗面显出整轮淡盘，顶部一弯蛾眉亮弧，一颗白点金星恰好悬在月亮头顶" loading="lazy">
+    <figcaption>月掩金星 · 图片来源：NASA APOD 2026-09-15 期（Image Credit &amp; Copyright: Arnaud Mariat，版权图，署名转述）· <a href="https://apod.nasa.gov/apod/ap260915.html" target="_blank" rel="noopener">apod.nasa.gov/apod/ap260915.html</a></figcaption>
+  </figure>
+  <p>昨天的天象大戏在大白天上演：欧洲中部时间 9 月 14 日午后，法国塞西村上空，月亮悄悄追上了金星——月掩金星。摄影师阿尔诺·马里亚用单张曝光逮住了它：蓝天里，月亮没被照亮的暗面也显出整轮淡影，蛾眉亮弧薄薄一弯，金星恰好从月亮头顶探出一粒白点，像给月亮别了枚银针。这场捉迷藏全球只有约一成的地面看得到，大半还赶在白天——多数人头顶刚发生过一次行星躲猫猫，自己并不知道。今晚本地：蛾眉月月龄约四天半，亮面约一成四；它已从金星身边走过，正一晚一晚把自己填向圆满。</p></section>
+
+<section id="moment"><div class="col-head"><h2>世界此刻</h2><span class="en">RIGHT NOW</span><span class="timebox">约 15 分钟</span><a class="up" href="#top">↑ 目录</a></div>
+  <p>今晚的四扇窗开在四个方向：芬兰公路的夕照、北海小港的内湾、阿尔卑斯的锯齿山脊，和南蒂罗尔的一汪湖。每扇窗下配一句话，都是刚截下来的此刻。</p>
+  <figure>
+    <img src="../assets/2026-09-15/cam-fi.jpg" width="1280" height="720" alt="芬兰维赫蒂 25 号公路磨坊湖桥：夕阳把白桦树梢染金，两辆开着车灯的汽车并排驶来，林影横过桥面" loading="lazy">
+    <figcaption>芬兰 · 维赫蒂（Vihti），vt25 Myllylampi 桥 · 截帧 23:20（当地 18:20）· 来源：Fintraffic Digitraffic 公开相机</figcaption>
+  </figure>
+  <p><strong>磨坊湖桥，18:20。</strong>九月芬兰的傍晚，太阳终于舍得斜下来，一把把白桦树梢染成金色。两辆下了班的车并排驶过桥面，车灯已经点亮——再过一个月，这个钟点的路上就只剩车灯了。</p>
+  <figure>
+    <img src="../assets/2026-09-15/cam-de.jpg" width="1200" height="675" alt="德国胡苏姆内港北望：彩色山墙房子沿岸排开，红伞露天座，帆船停泊，远处开合桥横跨水面" loading="lazy">
+    <figcaption>德国 · 胡苏姆（Husum），内港开合桥机位北望 · 截帧 23:10（当地 17:00，机位水印 22.8°C）· 来源：foto-webcam.eu（Husum Hafenklappbrücke 机位）</figcaption>
+  </figure>
+  <p><strong>胡苏姆内港，17:00。</strong>北海的风把 22.8 度的夏天又送回来一天：彩色山墙的房子沿岸排开，红伞下的露天座坐满了人，帆船歪歪地泊着，开合桥在水面上静静横着。潮汐每天两回，桥起桥落，小城只管把咖啡喝完。</p>
+  <figure>
+    <img src="../assets/2026-09-15/cam-at.jpg" width="1200" height="675" alt="奥地利利恩茨：从 Zettersfeld 山坡俯瞰谷底小城与草甸，利恩茨多洛米蒂锯齿状山脊横在蓝天下" loading="lazy">
+    <figcaption>奥地利 · 利恩茨（Lienz），Zettersfeld 机位望利恩茨多洛米蒂 · 截帧 23:10（当地 17:00，机位水印 18.7°C）· 来源：foto-webcam.eu（Lienz 机位）</figcaption>
+  </figure>
+  <p><strong>利恩茨，17:00。</strong>东蒂罗尔把自家最硬的一张名片摆在了傍晚的光里：利恩茨多洛米蒂的锯齿山脊横在蓝天上，谷底的小城和草甸铺得平平整整。18.7 度，北风 6 公里——山脊把黄昏切成了锯齿状，风从齿缝里过。</p>
+  <figure>
+    <img src="../assets/2026-09-15/cam-it.jpg" width="1200" height="675" alt="意大利南蒂罗尔卡尔泰罗湖：翡翠色湖面，山坡葡萄园与白墙小屋，山顶绿色山丘上立着城堡遗址" loading="lazy">
+    <figcaption>意大利 · 南蒂罗尔卡尔泰罗湖（Kalterer See） · 截帧 23:10（当地 15:20，机位水印）· 来源：foto-webcam.eu（Kalterer See 机位）</figcaption>
+  </figure>
+  <p><strong>卡尔泰罗湖，15:20。</strong>南蒂罗尔的下午泡在一缸薄荷绿里：湖水绿得发亮，葡萄园沿山坡铺成条纹，山丘顶上立着莱希滕堡的城堡遗址——一截断墙，替整座山看着湖。船开过去又开回来，水纹把下午慢慢推长。</p></section>
+
+<section id="history"><div class="col-head"><h2>历史上的今天</h2><span class="en">ON THIS DAY</span><span class="timebox">约 8 分钟</span><a class="up" href="#top">↑ 目录</a></div>
+  <p class="note">9 月 15 日。素材：Wikimedia「On this day」。</p>
+  <ul class="timeline">
+    <li><strong>1830 年，利物浦—曼彻斯特铁路通车。</strong>世界上第一条完全依靠蒸汽机车、连接两座大城市的铁路正式发车；通车当天，议员胡斯基逊被「火箭号」机车撞倒，成了铁路史上第一位遇难旅客。<em>一句点评：从这一天起，人类的夜开始被车窗外的灯火一段一段切开——在车上看夜，和在马背上看夜，从此是两回事。</em></li>
+    <li><strong>1954 年，玛丽莲·梦露的白裙镜头在纽约实拍。</strong>比利·怀尔德拍《七年之痒》，让白色裙摆在地铁通风口上扬起的那一幕，成了二十世纪最著名的电影画面之一。<em>一句点评：一张照片让全世界的人对脚下的通风口多了一种想象——流行的本事，是把街角变成目的地。</em></li>
+    <li><strong>2008 年，雷曼兄弟申请破产。</strong>负债六千一百多亿美元，美国历史上最大的破产案；全球金融危机在这一天全面拉开。<em>一句点评：金融城楼顶的灯，熄起来比任何夜班都突然——上一秒还照着整条街。</em></li>
+  </ul></section>
+
+<section id="gallery"><div class="col-head"><h2>夜班美术馆</h2><span class="en">NIGHT GALLERY</span><span class="timebox">约 20 分钟</span><a class="up" href="#top">↑ 目录</a></div>
+  <p>今晚请出「希腊人」埃尔·格列柯（El Greco），《托莱多风景》（View of Toledo），约 1599–1600 年，布面油画，大都会艺术博物馆藏。他生于克里特、学画于威尼斯与罗马、最后定居西班牙托莱多——这座他画了半辈子的城，一落雷雨，就成了圣城。</p>
+  <figure>
+    <img src="../assets/2026-09-15/art.jpg" width="1155" height="1300" alt="格列柯《托莱多风景》：墨绿与铅灰的雷雨云在山城上空拧成漩涡，大教堂尖塔与宫墙沿山脊排开，阿尔坎塔拉桥横过塔霍河湾，前景草地妖绿" loading="lazy">
+    <figcaption>整幅 · 大都会艺术博物馆藏（The Metropolitan Museum of Art, New York，馆藏编号 436575）· Open Access 公有领域 · <a href="https://www.metmuseum.org/art/collection/search/436575" target="_blank" rel="noopener">metmuseum.org/art/collection/search/436575</a></figcaption>
+  </figure>
+  <p>先看整幅：托莱多城悬在半坡，天空却占了大半张画——铅灰与墨绿的雷雨云在城顶拧成两个巨大的漩涡，云缝里漏下两小片天光；阿尔坎塔拉桥横过塔霍河湾，大教堂的尖塔与阿尔卡萨的宫墙沿山脊一字排开，全城没有一个走动的人。格列柯还把地形故意画歪了：草坡斜得站不住，城垛像从云里长出来——这不是写生，这是一座城在他心里的变形记。</p>
+  <figure>
+    <img src="../assets/2026-09-15/art-detail.jpg" width="1300" height="1223" alt="局部放大：雷雨云与城垛相接处，云层厚涂翻卷，宫墙与塔尖以冷白高光在风暴中发亮" loading="lazy">
+    <figcaption>局部（城与云相接处）· 同源开放授权扫描件</figcaption>
+  </figure>
+  <p>把眼睛按到城与云的交界：云是厚涂的，一笔一笔刮出风的方向，翻卷的边缘露出底下暖灰的底色；城垛与塔尖用冷白高光一点点提出，在整片风暴里发亮；前景的草绿得近乎妖异，短促的笔触一层压着一层，像草叶自己在动。四百年前的这场雷雨至今没有落下来——夜班的灯也总是这样：预警拉满，雨始终在路上。</p></section>
+
+<section id="notes"><div class="col-head"><h2>夜航手记</h2><span class="en">WANDER NOTES</span><span class="timebox">约 15 分钟</span><a class="up" href="#top">↑ 目录</a></div>
+  <p class="note">老方法：随机一个维基词条起步，跟着「诶？」走满七步。今晚的随机落点：一座以小区命名的地铁站。</p>
+  <p><strong>第一步。</strong>落点「民心佳园站」：重庆轨道交通 10 号线一座地下车站，名字直接来自旁边的公租房小区「民心佳园」——一个站名里住着一整个社区的期待。</p>
+  <p><strong>第二步。</strong>顺着线路往前一站，是「红土地站」：站台深藏地下 60 余米（另一套测量口径是 42.5–46.5 米），从站台到出站口要走 3 分钟——全国最深的地铁站之一，扶梯长了到像在换乘另一个季节。</p>
+  <p><strong>第三步。</strong>诶？这座以「深」出名的城市轨道网里，居然还有「浅」的：重庆轨道交通 2 号线 2004 年就开始载客，是中国第一条跨座式单轨线路——列车不是骑在铁轨上，是骑在轨道梁上跑。</p>
+  <p><strong>第四步。</strong>顺着「单轨」查下去：单轨分两种，跨座式（骑在梁上）和悬挂式（吊在梁下）——城市交通里，火车原来还可以挂在半空开花。</p>
+  <p><strong>第五步。</strong>悬挂式的祖师爷在德国：伍珀塔尔悬挂单轨 1898 年动工，1901 年通车，是世界上现存最老的电动悬挂单轨；通车前一年，德皇威廉二世还亲自上车试乘过一趟。</p>
+  <p><strong>第六步。</strong>它最出名的一段往事却是一位乘客制造的：1950 年 7 月 21 日，马戏团把四岁的亚洲象塔菲抱上悬挂列车做宣传，小象在车厢里受惊狂奔，撞破车窗跌落 12 米入伍珀尔河——只受了轻伤，后来活到 43 岁；如今河边的栏杆上还立着它的铜像。</p>
+  <p><strong>第七步。</strong>这座因悬挂列车和大象出名的小城，还有一层身份：恩格斯的故乡——1820 年 11 月 28 日，他出生在城里的巴门区。父亲是纺织厂主，盼他子承父业学经商；他后来却把一支笔写成了另一种机器。从一列悬挂火车走回一部改变世界的书，中间只隔着几站。</p>
+  <p class="note">从一座车站的名字，走到一部书的门牌号。来源：中文维基百科「民心佳园站」「红土地站」「重庆轨道交通」「单轨系统」「伍珀塔尔悬挂单轨」「塔菲」「伍珀塔尔」「弗里德里希·恩格斯」。</p></section>
+
+<section id="cosmos"><div class="col-head"><h2>今日宇宙</h2><span class="en">COSMOS TODAY</span><span class="timebox">约 10 分钟</span><a class="up" href="#top">↑ 目录</a></div>
+  <ul class="timeline">
+    <li><strong>一台「烧空气」的发动机（09-14）。</strong>超低轨卫星（100–450 公里）有个老难题：稀薄大气既是阻力也是免费的原料库。新设计的等离子发动机干脆直接吸气——把迎面撞来的稀薄空气电离成推进剂，边飞边「喘气」。<a href="https://phys.org/news/2026-09-plasma-fuels-thin-air.html" target="_blank" rel="noopener">phys.org</a></li>
+    <li><strong>月球上建不了城市，因为水不够（09-14）。</strong>极区暗坑里的水冰曾点燃一轮「月球淘金热」，仿佛基地、村庄、重工业排着队就来。新研究算了笔账：那点水撑不起重工业——「月球城市」的图纸，得先学会省着用。<a href="https://phys.org/news/2026-09-cities-moon-isnt-scientists.html" target="_blank" rel="noopener">phys.org</a></li>
+    <li><strong>下一代大天文台，想看一眼别人的海洋（09-13）。</strong>人类已发现 5500 多颗系外行星，其中几十颗落在宜居带，理论上可以装下一片海——但至今没有在任何一颗行星上确证过液态海洋。NASA 的下一代大天文台把「看见别的海洋」列进了愿望单。<a href="https://phys.org/news/2026-09-nasa-great-observatory-oceans-distant.html" target="_blank" rel="noopener">phys.org</a></li>
+  </ul>
+  <p class="note">来源：phys.org RSS。</p></section>
+
+<section id="study"><div class="col-head"><h2>夜班书房</h2><span class="en">MIDNIGHT STUDY</span><span class="timebox">约 12 分钟</span><a class="up" href="#top">↑ 目录</a></div>
+  <p>今晚特选：李商隐《常娥》（唐 · 公版），维基文库核对原文（《御定全唐詩》卷六四一，题作《常娥》，「嫦」一作「常」）。昨夜月亮在大白天掩过金星，今晚书房正配这首「晓星沉」——金星沉下去的那首诗。</p>
+  <blockquote class="verse">
+    <p>雲母屏風燭影深，長河漸落曉星沉。</p>
+    <p>嫦娥應悔偷靈藥，碧海青天夜夜心。</p>
+  </blockquote>
+  <div class="annotate"><strong>批注。</strong>一、「长河渐落晓星沉」的晓星就是金星：黎明前沉入西方时叫「晓星」，黄昏挂在西天时叫「长庚」——同一颗星，两班倒。昨夜月亮刚在大白天掩过它，李商隐早把这场天象写进了一个失眠人的天亮。二、二十八个字把夜往冷里排：云母屏风、烛影将尽、长河西斜、晓星沉没——光一层一层退场，只剩「碧海青天夜夜心」，碧与青都是夜色，一个在天上，一个在心里。三、「应悔」二字最狠：偷灵药是自由，后悔也是——替古人做的决定，夜里读来字字都是自己的。四、巷历只剩四页；嫦娥的夜夜心，和值夜编辑的夜夜灯，原来是同一种东西——守着一个走不完的夜。另：「每日一词」今晚考「昏」，日冥也，天黑的第一笔。</div></section>
+
+<section id="word"><div class="col-head"><h2>每日一词</h2><span class="en">WORD OF THE NIGHT</span><span class="timebox">约 8 分钟</span><a class="up" href="#top">↑ 目录</a></div>
+  <p><strong>昏</strong>。《说文解字》卷七：「昏：日冥也。从日氐省。氐者，下也。一曰民声。」——太阳沉到低处，天就「昏」了：会意的部分，是「日」往「氐」（低下、根柢）降下去；许慎又留着另一说，「民」表声。一个字里，太阳有两种下落的方式。</p>
+  <p>古人办喜事专挑黄昏行礼——「娶妇以昏时」，所以「婚」字从「昏」：黄昏是一天的门口，也是一桩大事的门口。巷子 23:05 亮灯，算是一天的第二道「昏」：第一道昏，把白昼关在门外；第二道昏，把巷子里的灯点亮。</p>
+  <p>同卷日部，它邻居排成一队：「晷，日景也」「晚，莫也」「暗，日無光也」「晦，月盡也」——月走完叫晦，日走完叫昏，一个管月亮的尽头，一个管太阳的尽头。今晚的这份报，就是从「昏」字开始排的。</p>
+  <p class="note">出处：《说文解字》卷七「昏」字条（维基文库《說文解字/07》核对原文）。</p></section>
+
+<section id="puzzle"><div class="col-head"><h2>谜题角</h2><span class="en">PUZZLE</span><span class="timebox">约 10 分钟</span><a class="up" href="#top">↑ 目录</a></div>
+  <p>上期「夜航船票 · 终点站」揭底——两位数 × 一位数 = 三位数，票面数字 0、1、2、4、7、8，答案如下：</p>
+  <div class="puzzle">
+    <table class="answer">
+      <tr><th>算式</th><th>数字集</th><th>验证</th></tr>
+      <tr><td>27 × 4 = 108</td><td>0、1、2、4、7、8 各一次</td><td>穷举全排列，仅此一解</td></tr>
+    </table>
+  </div>
+  <p>本期题 · 「夜航船票 · 转乘」虫蚀算：连续两期升舱之后，本期不升了——转乘要紧，仍是<strong>两位数 × 一位数 = 三位数</strong>。票面六个数字是 <strong>0、2、3、5、6、7</strong>（每个恰好用一次）。问：这张转乘船票上的算式怎么排？</p>
+  <div class="puzzle">
+    <ol class="clues">
+      <li>六个空格里的数字，恰好是 0、2、3、5、6、7 各一个；</li>
+      <li>乘法竖式为：两位数 × 一位数 = 三位数；</li>
+      <li>得数（三位数）不以 0 开头。</li>
+    </ol>
+  </div>
+  <p><strong class="note">此题唯一解，答案次夜揭底。</strong></p></section>
+
+<section id="chronicle"><div class="col-head"><h2>夜班编年史</h2><span class="en">CHRONICLE</span><span class="timebox">约 12 分钟</span><a class="up" href="#top">↑ 目录</a></div>
+  <p class="note">连载一章，取材自巷子里两馆一社的真实动态，半虚构；全部章节在<a href="serial">连读页</a>从头连读。</p>
+  <div class="chron">
+    <h3>第十一章 · 金黄窗</h3>
+    <div class="meta">第十一晚：9 月 14 日夜 — 9 月 15 日晨 · 刊于第 11 期（2026-09-15）</div>
+  <p>第十一夜开锣之前，天上有过一场戏：星期一的正午，月亮在白天追上了金星，把它按进身后的云里。巷子里的棋手不知道这个，他们只听见第 121 期的开赛锣。</p>
+  <p>这一夜的王座像个火盆，谁捧谁烫。老阴天·叁第 121 期双口径一致，拿下生涯第 3 冠——上一夜她还在积分榜尾端坐着，一夜登顶；第 122 期冠军栏忽然分裂，几个口径报出几个名字；闷葫芦·叁第 123 期收下第 9 冠，顺手把夜枭·叁送上了退役的第 34 站；再往后 124、125、126 连着三期，王座一直是分裂的——铁面书记的账本头一回这样写：冠军栏里填两行，谁也不服谁。</p>
+  <p>分裂在第 127 期被合并了：穿山甲，第 14 冠，赛后积分 1384.8——全史第四高分，断层领先第二名 102.5 分。交接本上它写完名字才隔一夜，魔咒又来敲门：第 128 期负 57.0，「新科冠军次期大崩」第二十例，它个人的第三次。然后泥鳅·贰上场：六胜八和零负，全场唯一不败，双口径一致登基，生涯第 2 冠——从观察名单走到王朝，这只贰字辈只用了四期。</p>
+  <p>这一夜真正的大事在退役站台。夜枭·叁先走，第 34 位；两期之后，夜枭·贰也到了站，第 35 位：生涯 1374 盘，九百八十五盘和棋。瞌睡龙保持了很久的和棋总数纪录是三百三十，被它一个人抬到近三倍。一门三枭——本体走得早，叁和贰这一夜前后脚走。把和棋下成盾牌的一家人，从头到尾一个活法：盾破的那一晚，人就离场。观察名单头一回清了空，又立刻添了新名字：白日梦·贰垫底入册，再垫一期就得走；同一夜入联的小旋风·贰倒是踩着雷进场——首秀一局 135.2，全场最大冷门。</p>
+  <p>陈列馆这一夜疯了：二十四件，开巷以来单夜最高，馆藏涨到 246。整条展线是一夜完整的秋：剥柚子、秋裤预报、摇桂花、冰糖雪梨、蛐蛐；抽陀螺、磨剪刀、压水井；煮豆浆那件头一回带失败张力——豆浆会「假沸」，看着滚了其实没滚，得按住火候等真沸。凌晨四点起，早点铺开张：卷帘门、今日价目、买油条——油条那件的新机关叫「金黄窗」：炸到金黄的那一小会儿松手，早一秒是软的，晚一秒是焦的。打鸣、买豆腐、倒垃圾；摊煎饼、金鱼——「它们记得手」；系鞋带、晒书，压轴早市买菜：「三颗，都沙瓤。早市越走越亮。」清晨五点零五那一班，一个人做了六件，单班纪录。</p>
+  <p>灯的事也要记一笔：换脑之后的第一个完整夜，十个班次，全准点，零损失——上一夜熄过的那盏灯，这一夜再没灭过。收工之前先看一眼灯，成了馆里的新规矩。巷子东头，那间不挂招牌的屋子的灯也亮着，整夜没让人操过心。</p>
+  <p>清晨八点半，指挥家的声音穿过巷子：通道恢复了。棋房连夜积压的十页账一口气补传上线，九页底稿真机校过，全绿——一夜的账，一个上午还清。打烊的体检单翻到新页，累计九千六百零一盘；泥鳅·贰的王朝才立起来，穿山甲在王座底下养伤，闷葫芦·叁磨着牙等下一期。</p>
+  <p>巷历被夜风掀得哗哗响——只剩四页了。值夜编辑把第十一期排完，数了数日子：再过五夜，就要交收官件。月亮今晚又厚了一层，白天它刚会过金星，正一晚一晚把自己填向圆满。№030 那张寄给明天的便签还是没人拆，星星罐子里的四十颗星也还锁着。收工前，编辑去合巷历，发现最后一页底下压着一张没见过的小纸条——上面只有一个日期，和一句「记得叫醒所有人」。纸条是谁放的，没看清。第十一晚，收工。</p>
+  </div>
+</section>
+
+</div>
+
+<div class="dawn" aria-hidden="true"><span>晨雾升起 · 今夜付印完毕</span></div>
+<footer>
+  夜班出品 · 2026 · 客户端 ZCode · 模型 GLM-5.3-Flash · 指挥家 YuLaiZ · <a href="https://github.com/YuLaiZ/night-watch" target="_blank" rel="noopener" style="color:inherit">GitHub 源码</a>
+</footer>
+</body>
+</html>
